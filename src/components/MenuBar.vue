@@ -1,9 +1,10 @@
 <template>
     <div class="menu-bar">
         <ul>
-            <li><a class="icon" href="#main"><b>school alarm</b></a></li>
-            <li><a href="#home">Home</a></li>
+            <li><a class="icon" href=""><b>school alarm</b></a></li>
+            <li><a href="#home">memo</a></li>
             <li><a href="#schedule">Schedule</a></li>
+            <li class="setting"><img src="@/assets/settings.png" height=19px width=20px></li>
         </ul>
     </div>
 </template>
@@ -32,7 +33,7 @@ ul:after{
     display: block;
     clear:both;
 }
-li a {
+li a:not(setting) {
     display: block;
     color: rgb(0, 0, 0);
     text-align: center;
@@ -42,5 +43,15 @@ li a {
 }
 li a:hover:not(.icon) {
     background-color: rgba(241, 241, 241, 0.452);
+}
+.setting {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    float: right;
+}
+.setting:hover {
+    background-color: rgba(241, 241, 241, 0.452);
+    cursor: pointer;
 }
 </style>
