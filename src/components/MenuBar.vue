@@ -32,15 +32,13 @@ ul:after{
     display: block;
     clear:both;
 }
-li {
-    float: left;
-}
 li a {
     display: block;
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    float: left;
 }
 li a:hover:not(.icon) {
     background-color: rgba(241, 241, 241, 0.452);
