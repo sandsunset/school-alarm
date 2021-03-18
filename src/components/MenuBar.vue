@@ -1,9 +1,9 @@
 <template>
     <div class="menu-bar">
         <ul>
-            <li><a class="icon" href=""><b>school alarm</b></a></li>
-            <li><a href="#home">memo</a></li>
-            <li><a href="#schedule">Schedule</a></li>
+            <li><a class="icon" href="/"><b>school alarm</b></a></li>
+            <li><a href="/memo">memo</a></li>
+            <li><a href="/schedule">Schedule</a></li>
             <li class="setting"><img src="@/assets/settings.png" height=19px width=20px></li>
         </ul>
     </div>

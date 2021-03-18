@@ -8,6 +8,6 @@
 
 <script>
 export default {
-    name="setting"
+    name : "setting"
 }
 </script>
