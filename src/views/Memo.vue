@@ -45,7 +45,13 @@ export default {
   float: left;
 }
 .box {
-  width:200px;height:300px;border: 1px solid;border-color: black;border-radius: 10px;margin: 5px
+  width:200px;
+  height:300px;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 1px 1px 5px -2px black;
 }
 li {
   float:left;
