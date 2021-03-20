@@ -12,7 +12,7 @@
         </div>
       </li>
     </ul>
-    <img id="plus" @click="hello" src="@/assets/plus.png" height=35px width=35px>
+    <img id="plus" @click="newMemo" src="@/assets/plus.png" height=35px width=35px>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-    hello() {
+    newMemo() {
       var newBox = document.createElement("li");
       newBox.innerHTML = '<div class="box"><p>asdf</p></div>'
       memos[0].appendChild(newBox);
