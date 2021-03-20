@@ -44,8 +44,12 @@ export default {
   margin: 1%;
   float: left;
 }
-.box {width:200px;height:300px;border: 1px solid;border-color: black;border-radius: 10px;margin: 5px}
-li {float:left;}
+.box {
+  width:200px;height:300px;border: 1px solid;border-color: black;border-radius: 10px;margin: 5px
+}
+li {
+  float:left;
+}
 ul {
   list-style: none;
   padding: 0;
