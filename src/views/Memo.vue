@@ -1,5 +1,8 @@
 <template>
   <div class="memo">
+    <div id="plus">
+      <img id="plus" @click="newMemo" src="@/assets/plus.png" height=35px width=35px>
+    </div>
     <ul class="memos">
       <li v-for="Memo in memos" v-bind:key="Memo">
         <div class="box">
@@ -12,7 +15,6 @@
         </div>
       </li>
     </ul>
-    <img id="plus" @click="newMemo" src="@/assets/plus.png" height=35px width=35px>
   </div>
 </template>
 
@@ -47,11 +49,25 @@ export default {
 .box {
   width:200px;
   height:300px;
-  border: 1px solid;
-  border-color: black;
+  background-color: white;
+  transition-duration: 0.5s;
+  /* border: 1px solid;
+  border-color: black; */
   border-radius: 10px;
   margin: 5px;
-  box-shadow: 1px 1px 5px -2px black;
+  box-shadow: 1px 1px 3px 2px #d2d3d6;
+}
+.box:hover {
+  width: 210px;
+  height: 310px;
+  cursor: pointer;
+}
+.title {
+  position: relative;
+  text-align: center;
+  width: 70%;
+  border-bottom: 1px solid;
+  border-bottom-color: rgb(102, 99, 102);
 }
 li {
   float:left;
@@ -62,5 +78,6 @@ ul {
 }
 #plus:hover {
   cursor: pointer;
+  float: left;  
 }
 </style>
