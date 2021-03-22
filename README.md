@@ -1,24 +1,10 @@
 # school-alarm
+학교 온라인 수업때 도움을 주는 알리미
 
-## Project setup
-```
-npm install
-```
+## 기능
+### 시간표
+학교,학년,반을 입력하고 학교 시간표를 확인하세요
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 메모장
+과목별 줌주소, 온클주소, 과제등을 정보를 기록하고
+수업 5분전에 미리 알림을 받으세요
