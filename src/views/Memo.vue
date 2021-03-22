@@ -4,13 +4,13 @@
       <img id="plus" @click="newMemo" src="@/assets/plus.png" height=35px width=35px>
     </div>
     <ul class="memos">
-      <li v-for="Memo in memos" v-bind:key="Memo">
+      <li v-for="(memo, index) in memos" :key="index">
         <div class="box">
           <div class="title">
-            {{ Memo.title }}
+            <input class="input" v-model="memo.title" :placeholder="memo.title">
           </div>
           <div class="memo">
-            {{ Memo.memo }}
+            {{ memo.memo }}
           </div>
         </div>
       </li>
@@ -18,9 +18,15 @@
   </div>
 </template>
 
-<script>
-const memos = document.getElementsByClassName("memos");
+<script>  
+const localStorage = window.localStorage;
+var memos = localStorage.getItem('memos');
 
+switch(memos) {
+  case null:
+    var basicMemo = {title:'제목을 입력하세요!',memo:'메모를 남기세요!'};
+    localStorage.setItem('memos', JSON.stringify(basicMemo));
+}
 export default {
   name: "Memo",
   data() {
@@ -33,9 +39,8 @@ export default {
   },
   methods: {
     newMemo() {
-      var newBox = document.createElement("li");
-      newBox.innerHTML = '<div class="box"><p>asdf</p></div>'
-      memos[0].appendChild(newBox);
+      // const new_memo
+      console.log('sans')
     }
   }
 }
@@ -64,10 +69,18 @@ export default {
 }
 .title {
   position: relative;
-  text-align: center;
+  padding-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
   width: 70%;
   border-bottom: 1px solid;
   border-bottom-color: rgb(102, 99, 102);
+}
+.input {
+  width: 70%;
+  text-align: center;
+  font-size: 100%;
+  border: 0;
 }
 li {
   float:left;
@@ -78,6 +91,8 @@ ul {
 }
 #plus:hover {
   cursor: pointer;
-  float: left;  
+}
+#plus {
+  float: right;
 }
 </style>
