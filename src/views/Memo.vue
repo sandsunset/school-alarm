@@ -24,23 +24,26 @@ var memos = localStorage.getItem('memos');
 
 switch(memos) {
   case null:
-    var basicMemo = {title:'제목을 입력하세요!',memo:'메모를 남기세요!'};
+    var basicMemo = {memos: [{title:'제목',memo:'메모'}]}
     localStorage.setItem('memos', JSON.stringify(basicMemo));
 }
+//console.log(localStorage.getItem('memos'))
+//console.log(this.memos)
 export default {
   name: "Memo",
   data() {
-    return {
-      memos: [
-        {title:'title',memo:'memo'},
-        {title:'title2',memo:'이건메모2'}
-      ]
-    }
+    return JSON.parse(localStorage.getItem('memos'));
+    // return {
+    //   memos: [
+    //     {title:'title',memo:'memo'},
+    //     {title:'title2',memo:'이건메모2'}
+    //   ]
+    // }
   },
   methods: {
-    newMemo() {
-      // const new_memo
-      console.log('sans')
+    newMemo: function() {
+      const memo = {title:'제목',memo:'메모'};
+      this.memos.push(memo);
     }
   }
 }
@@ -60,11 +63,11 @@ export default {
   border-color: black; */
   border-radius: 10px;
   margin: 5px;
-  box-shadow: 1px 1px 3px 2px #d2d3d6;
+  box-shadow: 10px 10px 20px 1px rgb(0 0 0 / 5%);
+  /* box-shadow: 1px 1px 3px 2px #d2d3d6; */
 }
 .box:hover {
-  width: 210px;
-  height: 310px;
+  box-shadow: 5px 5px 20px 1px rgb(0 0 0 / 17%);
   cursor: pointer;
 }
 .title {
@@ -77,7 +80,7 @@ export default {
   border-bottom-color: rgb(102, 99, 102);
 }
 .input {
-  width: 70%;
+  width: 100%;
   text-align: center;
   font-size: 100%;
   border: 0;
