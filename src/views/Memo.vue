@@ -44,6 +44,9 @@ export default {
     newMemo: function() {
       const memo = {title:'제목',memo:'메모'};
       this.memos.push(memo);
+      const Memos = JSON.parse(localStorage.getItem('memos'))
+      Memos['memos'].push(memo)
+      localStorage.setItem('memos', JSON.stringify(Memos));
     }
   }
 }
