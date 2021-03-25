@@ -3,18 +3,22 @@
     <div id="plus">
       <img id="plus" @click="newMemo" src="@/assets/plus.png" height=35px width=35px>
     </div>
-    <ul class="memos">
+    <ul class="category">
       <li v-for="(memo, index) in memos" :key="index">
-        <div class="box">
-          <div class="title">
-            <input class="input" v-model="memo.title" :placeholder="memo.title">
+        <h1>{{ memo }}</h1>
+        <!-- <ul class="memos">
+        <li v-for="(memo, index) in memos" :key="index">
+          <div class="box">
+            <div class="title">
+              <input class="input" v-model="memo.title" :placeholder="memo.title">
+            </div>
+            <div class="memo">
+              {{ memo.memo }}
+            </div>
           </div>
-          <div class="memo">
-            {{ memo.memo }}
-          </div>
-        </div>
+        </li> -->
       </li>
-    </ul>
+      </ul>
   </div>
 </template>
 
@@ -24,7 +28,8 @@ var memos = localStorage.getItem('memos');
 
 switch(memos) {
   case null:
-    var basicMemo = {memos: [{title:'제목',memo:'메모'}]}
+    //var basicMemo = {memos: [{title:'제목',memo:'메모'}]}
+    var basicMemo = {memos: {과목1:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],과목2:[{title:'title3',memo:'memo2'}]}}
     localStorage.setItem('memos', JSON.stringify(basicMemo));
 }
 //console.log(localStorage.getItem('memos'))
@@ -32,7 +37,7 @@ switch(memos) {
 export default {
   name: "Memo",
   data() {
-    return JSON.parse(localStorage.getItem('memos'));
+    return JSON.parse(localStorage.getItem('memos'));//{memos: {'과목':{title:'title',memo:'memo'}}}
     // return {
     //   memos: [
     //     {title:'title',memo:'memo'},
