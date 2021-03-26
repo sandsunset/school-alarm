@@ -1,8 +1,5 @@
 <template>
   <div class="memo">
-    <div id="plus">
-      <!-- <img id="plus" @click="newMemo" src="@/assets/plus.png" height=35px width=35px> -->
-    </div>
     <ul class="category">
       <li v-for="(category, index) in categories" :key="index">
         <div class="category-layout">
@@ -11,7 +8,6 @@
         </div>
         <ul class="memos">
         <li v-for="(memo, index) in memos[category]" :key="index">
-          <!-- <h1>{{ memo }}</h1> -->
           <div class="box">
             <div class="title">
               <input class="input" v-model="memo.title" :placeholder="memo.title">
@@ -34,8 +30,6 @@ var category = localStorage.getItem('categories');
 
 switch(memos) {
   case null:
-    //var basicMemo = {memos: [{title:'제목',memo:'메모'}]}
-    // var basicMemo = {memos: {국어:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],수학:[{title:'title3',memo:'memo2'}]}}
     var basicMemo = {국어:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],수학:[{title:'title3',memo:'memo2'}]}
     localStorage.setItem('memos', JSON.stringify(basicMemo));
 }
@@ -92,7 +86,7 @@ h2 {
   width:200px;
   height:300px;
   background-color: white;
-  transition-duration: 0.5s;
+  transition-duration: 0.45s;
   border-radius: 10px;
   padding-top: 10px;
   margin: 5px;
@@ -101,7 +95,10 @@ h2 {
 }
 .box:hover {
   box-shadow: 5px 5px 20px 1px rgb(0 0 0 / 17%);
-  cursor: pointer;
+  margin-top: 3px;
+  margin-bottom: 11px;
+  margin-left: 3px;
+  margin-right: 8px;
 }
 .title {
   position: relative;
