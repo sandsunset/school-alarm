@@ -1,11 +1,15 @@
 <template>
   <div class="memo">
     <div id="plus">
-      <img id="plus" @click="newMemo" src="@/assets/plus.png" height=35px width=35px>
+      <!-- <img id="plus" @click="newMemo" src="@/assets/plus.png" height=35px width=35px> -->
     </div>
     <ul class="category">
-      <li v-for="(memo, index) in memos" :key="index">
-        <h1>{{ memo }}</h1>
+      <li v-for="(category, index) in categories" :key="index">
+        <div class="category-layout">
+          <img id="plus" @click="newMemo" src="@/assets/plus.png" height=34px width=34px>
+          <h2>{{ category }}</h2>
+        </div>
+        <h1>hello</h1>
         <!-- <ul class="memos">
         <li v-for="(memo, index) in memos" :key="index">
           <div class="box">
@@ -25,19 +29,23 @@
 <script>  
 const localStorage = window.localStorage;
 var memos = localStorage.getItem('memos');
+var category = localStorage.getItem('categories');
 
 switch(memos) {
   case null:
     //var basicMemo = {memos: [{title:'제목',memo:'메모'}]}
-    var basicMemo = {memos: {과목1:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],과목2:[{title:'title3',memo:'memo2'}]}}
+    var basicMemo = {memos: {국어:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],수학:[{title:'title3',memo:'memo2'}]}}
     localStorage.setItem('memos', JSON.stringify(basicMemo));
 }
-//console.log(localStorage.getItem('memos'))
-//console.log(this.memos)
+switch(category) {
+  case null:
+    var categories = {categories: ['국어','수학']};
+    localStorage.setItem('categories', JSON.stringify(categories));
+}
 export default {
   name: "Memo",
   data() {
-    return JSON.parse(localStorage.getItem('memos'));//{memos: {'과목':{title:'title',memo:'memo'}}}
+    return JSON.parse(localStorage.getItem('memos')), JSON.parse(localStorage.getItem('categories'))//{memos: {'과목':{title:'title',memo:'memo'}}}
     // return {
     //   memos: [
     //     {title:'title',memo:'memo'},
@@ -49,9 +57,16 @@ export default {
     newMemo: function() {
       const memo = {title:'제목',memo:'메모'};
       this.memos.push(memo);
-      const Memos = JSON.parse(localStorage.getItem('memos'))
-      Memos['memos'].push(memo)
+      const Memos = JSON.parse(localStorage.getItem('memos'));
+      Memos['memos'].push(memo);
       localStorage.setItem('memos', JSON.stringify(Memos));
+    },
+    newCategory: function() {
+      const category = ['이름을 입력하세요'];
+      this.categories.push(category);
+      const categories = JSON.parse(localStorage.getItem('categories'));
+      categories['categories'].push(category);
+      localStorage.setItem('categories', JSON.stringify(categories));
     }
   }
 }
@@ -61,6 +76,15 @@ export default {
 .memo {
   margin: 1%;
   float: left;
+}
+h2 {
+  margin-bottom: 6px;
+  margin-left: 5px;
+}
+.category-layout {
+  border-bottom: 1px solid black;
+  width: 98vw;
+  text-align: left;
 }
 .box {
   width:200px;
