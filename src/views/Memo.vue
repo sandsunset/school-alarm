@@ -6,21 +6,22 @@
     <ul class="category">
       <li v-for="(category, index) in categories" :key="index">
         <div class="category-layout">
-          <img id="plus" @click="newMemo" src="@/assets/plus.png" height=34px width=34px>
+          <img id="plus" @click="sans" src="@/assets/plus.png" height=34px width=34px>
           <h2>{{ category }}</h2>
         </div>
-        <h1>hello</h1>
-        <!-- <ul class="memos">
+        <ul class="memos">
         <li v-for="(memo, index) in memos" :key="index">
-          <div class="box">
+          <h1>{{ memo }}</h1>
+          <!-- <div class="box">
             <div class="title">
-              <input class="input" v-model="memo.title" :placeholder="memo.title">
+              <input class="input" v-model="memo.category.title" :placeholder="memo.category.title">
             </div>
             <div class="memo">
-              {{ memo.memo }}
+              {{ memo.category.memo }}
             </div>
-          </div>
-        </li> -->
+          </div> -->
+        </li>
+        </ul>
       </li>
       </ul>
   </div>
@@ -34,18 +35,23 @@ var category = localStorage.getItem('categories');
 switch(memos) {
   case null:
     //var basicMemo = {memos: [{title:'제목',memo:'메모'}]}
-    var basicMemo = {memos: {국어:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],수학:[{title:'title3',memo:'memo2'}]}}
+    // var basicMemo = {memos: {국어:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],수학:[{title:'title3',memo:'memo2'}]}}
+    var basicMemo = {국어:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],수학:[{title:'title3',memo:'memo2'}]}
     localStorage.setItem('memos', JSON.stringify(basicMemo));
 }
 switch(category) {
   case null:
-    var categories = {categories: ['국어','수학']};
+    var categories = ['국어','수학'];
     localStorage.setItem('categories', JSON.stringify(categories));
 }
 export default {
   name: "Memo",
   data() {
-    return JSON.parse(localStorage.getItem('memos')), JSON.parse(localStorage.getItem('categories'))//{memos: {'과목':{title:'title',memo:'memo'}}}
+    return {
+      memos: JSON.parse(localStorage.getItem('memos')),
+      categories: JSON.parse(localStorage.getItem('categories'))
+    }
+    //{memos: {'과목':{title:'title',memo:'memo'}}}
     // return {
     //   memos: [
     //     {title:'title',memo:'memo'},
@@ -67,6 +73,9 @@ export default {
       const categories = JSON.parse(localStorage.getItem('categories'));
       categories['categories'].push(category);
       localStorage.setItem('categories', JSON.stringify(categories));
+    },
+    sans: function() {
+      console.log(this.memos)
     }
   }
 }
