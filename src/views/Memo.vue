@@ -6,20 +6,20 @@
     <ul class="category">
       <li v-for="(category, index) in categories" :key="index">
         <div class="category-layout">
-          <img id="plus" @click="sans" src="@/assets/plus.png" height=34px width=34px>
+          <img id="plus" @click="newMemo" src="@/assets/plus.png" height=34px width=34px>
           <h2>{{ category }}</h2>
         </div>
         <ul class="memos">
         <li v-for="(memo, index) in memos" :key="index">
-          <h1>{{ memo }}</h1>
-          <!-- <div class="box">
+          <!-- <h1>{{ memo }}</h1> -->
+          <div class="box">
             <div class="title">
-              <input class="input" v-model="memo.category.title" :placeholder="memo.category.title">
+              <input class="input" v-model="memo.title" :placeholder="memo.title">
             </div>
             <div class="memo">
-              {{ memo.category.memo }}
+              {{ memo.memo }}
             </div>
-          </div> -->
+          </div>
         </li>
         </ul>
       </li>
@@ -74,9 +74,9 @@ export default {
       categories['categories'].push(category);
       localStorage.setItem('categories', JSON.stringify(categories));
     },
-    sans: function() {
-      console.log(this.memos)
-    }
+    // sans: function() {
+    //   console.log(this.memos)
+    // }
   }
 }
 </script>
@@ -103,7 +103,9 @@ h2 {
   /* border: 1px solid;
   border-color: black; */
   border-radius: 10px;
+  padding-top: 10px;
   margin: 5px;
+  margin-top: 10px;
   box-shadow: 10px 10px 20px 1px rgb(0 0 0 / 5%);
   /* box-shadow: 1px 1px 3px 2px #d2d3d6; */
 }
