@@ -1,4 +1,6 @@
 # school-alarm
+[![CodeFactor](https://www.codefactor.io/repository/github/sandsunset/school-alarm/badge)](https://www.codefactor.io/repository/github/sandsunset/school-alarm)
+
 학교 온라인 수업때 도움을 주는 알리미
 
 ## 기능
