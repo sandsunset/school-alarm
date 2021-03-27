@@ -82,11 +82,20 @@ h2 {
   width: 98vw;
   text-align: left;
 }
+@keyframes fadein {
+    from {
+        opacity:0.4;
+    }
+    to {
+        opacity:1;
+    }
+}
 .box {
   width:200px;
   height:300px;
   background-color: white;
   transition-duration: 0.45s;
+  animation: fadein 1.2s;
   border-radius: 10px;
   padding-top: 10px;
   margin: 5px;
