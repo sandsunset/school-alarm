@@ -3,7 +3,7 @@
     <ul class="category">
       <li v-for="(category, index) in categories" :key="index">
         <div class="category-layout">
-          <img id="plus" @click="sans" src="@/assets/plus.png" height=34px width=34px>
+          <img id="plus" @click="newMemo(category)" src="@/assets/plus.png" height=34px width=34px>
           <h2>{{ category }}</h2>
         </div>
         <ul class="memos">
@@ -47,11 +47,11 @@ export default {
     }
   },
   methods: {
-    newMemo: function() {
+    newMemo: function(category) {
       const memo = {title:'제목',memo:'메모'};
-      this.memos.push(memo);
+      this.memos[category].push(memo);
       const Memos = JSON.parse(localStorage.getItem('memos'));
-      Memos['memos'].push(memo);
+      Memos[category].push(memo);
       localStorage.setItem('memos', JSON.stringify(Memos));
     },
     newCategory: function() {
@@ -93,13 +93,13 @@ h2 {
   margin-top: 10px;
   box-shadow: 10px 10px 20px 1px rgb(0 0 0 / 5%);
 }
-.box:hover {
+/* .box:hover {
   box-shadow: 5px 5px 20px 1px rgb(0 0 0 / 17%);
   margin-top: 3px;
   margin-bottom: 11px;
   margin-left: 3px;
   margin-right: 8px;
-}
+} */
 .title {
   position: relative;
   padding-top: 5px;
