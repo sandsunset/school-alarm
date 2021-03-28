@@ -16,3 +16,7 @@
 경고창:
 [v-slim-dialog](https://vuejsexamples.com/slim-dialog-for-vuejs/)
 Slim Dialog for Vuejs
+```
+yarn add v-slim-dialog
+# Or using npm
+npm install v-slim-dialog```
