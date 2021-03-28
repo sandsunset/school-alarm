@@ -19,4 +19,4 @@ Slim Dialog for Vuejs
 ```
 yarn add v-slim-dialog
 # Or using npm
-npm install v-slim-dialog```
+npm install v-slim-dialog
