@@ -23,14 +23,22 @@
   </div>
 </template>
 
-<script>  
+<script>
+import Vue from 'vue'
+
+import 'v-slim-dialog/dist/v-slim-dialog.css'
+import SlimDialog from 'v-slim-dialog'
+
+Vue.use(SlimDialog)
+
 const localStorage = window.localStorage;
-var memos = localStorage.getItem('memos');
-var category = localStorage.getItem('categories');
+const memos = localStorage.getItem('memos');
+const category = localStorage.getItem('categories');
+const alert = {title: '경고!', size:'sm'};
 
 switch(memos) {
   case null:
-    var basicMemo = {국어:[{title:'title',memo:'memo'},{title:'asdf',memo:'asdf'}],수학:[{title:'title3',memo:'memo2'}]}
+    var basicMemo = {국어:[{title:'제목을 입력하세요',memo:'이곳에 무언가를 써보세요'},{title:'asdf',memo:'asdf'}],수학:[{title:'title3',memo:'memo2'}]}
     localStorage.setItem('memos', JSON.stringify(basicMemo));
 }
 switch(category) {
@@ -49,6 +57,10 @@ export default {
   methods: {
     newMemo: function(category) {
       const memo = {title:'제목',memo:'메모'};
+      if(this.memos[category].length >= 5) {
+        this.$dialogs.alert('메모지는 한과목당 5개가 최대에요',alert);
+        return null
+      }
       this.memos[category].push(memo);
       const Memos = JSON.parse(localStorage.getItem('memos'));
       Memos[category].push(memo);
