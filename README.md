@@ -10,3 +10,9 @@
 ### 메모장
 과목별 줌주소, 온클주소, 과제등을 기록하고
 수업 5분전에 미리 알림을 받으세요
+
+## credit
+### 플러그인
+경고창:
+[v-slim-dialog](https://vuejsexamples.com/slim-dialog-for-vuejs/)
+Slim Dialog for Vuejs
