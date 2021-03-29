@@ -10,10 +10,10 @@
         <li v-for="(memo, index) in memos[category]" :key="index">
           <div class="box">
             <div class="title">
-              <input class="input" v-model="memo.title" :placeholder="memo.title">
+              <input class="title-input" v-model="memo.title" :placeholder="memo.title">
             </div>
             <div class="memo">
-              {{ memo.memo }}
+              <textarea class="memo-input" v-model="memo.memo" :placeholder="memo.memo"></textarea>
             </div>
           </div>
         </li>
@@ -96,10 +96,12 @@ h2 {
 }
 @keyframes fadein {
     from {
-        opacity:0.4;
+      transform: translateY(50px);
+      opacity:0;
     }
     to {
-        opacity:1;
+      transform: translateY(0px);
+      opacity:1;
     }
 }
 .box {
@@ -130,11 +132,18 @@ h2 {
   border-bottom: 1px solid;
   border-bottom-color: rgb(102, 99, 102);
 }
-.input {
+.title-input {
   width: 100%;
   text-align: center;
   font-size: 100%;
   border: 0;
+}
+.memo-input {
+  height: 99%;
+  width: 100%;
+  padding-top: 4px;
+  border: 0;
+  font-size: 97%;
 }
 li {
   float:left;
