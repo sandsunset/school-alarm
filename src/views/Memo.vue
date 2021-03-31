@@ -116,13 +116,13 @@ h2 {
   margin-top: 10px;
   box-shadow: 10px 10px 20px 1px rgb(0 0 0 / 5%);
 }
-/* .box:hover {
+.box:hover {
   box-shadow: 5px 5px 20px 1px rgb(0 0 0 / 17%);
   margin-top: 3px;
   margin-bottom: 11px;
   margin-left: 3px;
   margin-right: 8px;
-} */
+}
 .title {
   position: relative;
   padding-top: 5px;
